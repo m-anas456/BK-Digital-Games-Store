@@ -1,6 +1,7 @@
 /* Home Page Styles */
 .home {
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Hero Section */
@@ -57,7 +58,11 @@
   position: relative;
   z-index: 1;
   max-width: 700px;
+  width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-title {
@@ -65,6 +70,7 @@
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 25px;
+  width: 100%;
 }
 
 .hero-title span {
@@ -423,8 +429,12 @@
     min-height: auto;
   }
 
+  .hero-content {
+    max-width: 100%;
+  }
+
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .title-accent {
@@ -441,10 +451,10 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    width: 100%;
   }
 
-  .primary-btn,
-  .secondary-btn {
+  .btn {
     width: 100%;
     max-width: 250px;
     justify-content: center;
@@ -504,7 +514,7 @@
   }
 
   .hero-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .title-accent {
@@ -517,13 +527,20 @@
   }
 
   .hero-stats {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    gap: 20px;
   }
 
-  .stat-item {
-    width: 100%;
-    padding: 15px;
+  .stat {
+    flex: 1;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
   }
 
   .feature-card {
