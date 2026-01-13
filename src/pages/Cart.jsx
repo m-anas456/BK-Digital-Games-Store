@@ -71,7 +71,7 @@ const Cart = () => {
     const selectedPayment = paymentMethods.find(m => m.id === customerInfo.paymentMethod);
 
     // Create the order message
-    let message = "🎮 *New Order from BK Digital Games*\n\n";
+    let message = `"🎮 *New Order from ${customerInfo.name}*\n\n"`;
     message += "👤 *Customer Details:*\n";
     message += `   Name: ${customerInfo.name}\n`;
     message += `   Phone: ${customerInfo.phone}\n`;
