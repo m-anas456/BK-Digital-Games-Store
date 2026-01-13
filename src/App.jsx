@@ -3,6 +3,7 @@ import { CartProvider } from './context/CartContext';
 import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 // Lazy load pages for better performance
@@ -24,6 +25,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
+        <ScrollToTop />
         <div className="app">
           {/* Navigation Bar */}
           <Navbar />
