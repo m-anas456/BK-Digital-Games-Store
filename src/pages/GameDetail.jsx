@@ -124,8 +124,17 @@ const GameDetail = () => {
 
   const youtubeSearchQuery = encodeURIComponent(`${storeGame.title} PS4 gameplay trailer`);
 
+  // Get background image - prefer API background, fallback to store image
+  const backgroundImage = gameData?.background_image || storeGame.image;
+
   return (
     <div className="game-detail-page">
+      {/* Dynamic Background */}
+      <div className="page-background">
+        <img src={backgroundImage} alt="" className="page-bg-image" />
+        <div className="page-bg-overlay"></div>
+      </div>
+
       {/* Back Button */}
       <Link to="/games" className="back-link">
         <FaArrowLeft /> Back to Games

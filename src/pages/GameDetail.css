@@ -1,9 +1,45 @@
 /* Game Detail Page Styles */
 .game-detail-page {
   min-height: 100vh;
-  padding: 20px 40px 60px;
+  padding: 100px 40px 60px;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+}
+
+/* Dynamic Page Background */
+.page-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.page-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(8px);
+  transform: scale(1.1);
+  opacity: 0.4;
+}
+
+.page-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 15, 0.7) 0%,
+    rgba(10, 10, 15, 0.85) 30%,
+    rgba(10, 10, 15, 0.95) 70%,
+    rgba(10, 10, 15, 1) 100%
+  );
 }
 
 /* Back Link */
@@ -15,6 +51,8 @@
   font-size: 1rem;
   margin-bottom: 30px;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .back-link:hover {
@@ -30,6 +68,8 @@
   justify-content: center;
   min-height: 50vh;
   gap: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .spinner {
@@ -52,6 +92,8 @@
 .not-found {
   text-align: center;
   padding: 100px 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .not-found h2 {
@@ -76,6 +118,7 @@
   border-radius: 25px;
   overflow: hidden;
   margin-bottom: 40px;
+  z-index: 1;
 }
 
 .hero-background {
@@ -274,6 +317,8 @@
   border-radius: 20px;
   padding: 30px;
   margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .details-grid {
@@ -304,6 +349,8 @@
 /* Screenshots Section */
 .screenshots-section {
   margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
 }
 
 .screenshots-section h2,
