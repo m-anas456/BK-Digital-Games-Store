@@ -25,16 +25,18 @@
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .logo-image {
-  height: 50px;
+  height: 45px;
   width: auto;
   filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .logo-image:hover {
@@ -43,13 +45,14 @@
 }
 
 .logo-text {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   background: linear-gradient(90deg, #00ffff, #0080ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 /* Navigation Menu */
@@ -143,7 +146,8 @@
   transform: scale(1.1);
 }
 
-/* Responsive Styles */\n@media screen and (max-width: 960px) {
+/* Responsive Styles */
+@media screen and (max-width: 960px) {
   .navbar {
     height: 70px;
   }
@@ -153,11 +157,11 @@
   }
 
   .logo-image {
-    height: 40px;
+    height: 38px;
   }
 
   .logo-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .menu-icon {
@@ -198,20 +202,25 @@
 
 @media screen and (max-width: 480px) {
   .navbar {
-    height: 65px;
+    height: 60px;
+  }
+
+  .navbar-container {
+    padding: 0 12px;
   }
 
   .logo-image {
-    height: 35px;
+    height: 32px;
   }
 
   .logo-text {
-    font-size: 1rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
   }
 
   .nav-menu {
-    top: 65px;
-    height: calc(100vh - 65px);
+    top: 60px;
+    height: calc(100vh - 60px);
     padding: 30px 15px;
   }
 
