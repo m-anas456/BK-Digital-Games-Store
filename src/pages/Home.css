@@ -419,34 +419,49 @@
 
 @media screen and (max-width: 768px) {
   .hero {
-    padding: 80px 20px;
-    min-height: 80vh;
+    padding: 100px 20px 60px;
+    min-height: auto;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .title-accent {
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 4px;
   }
 
   .hero-description {
     font-size: 1rem;
+    padding: 0 10px;
   }
 
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
   }
 
   .hero-stats {
-    gap: 30px;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .stat-number {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
   }
 
   .floating-card {
@@ -454,33 +469,74 @@
   }
 
   .features {
-    padding: 60px 20px;
+    padding: 50px 20px;
   }
 
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
   }
 
   .cta {
-    padding: 60px 20px;
+    padding: 50px 20px;
   }
 
   .cta-content h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
   }
 }
 
 @media screen and (max-width: 480px) {
+  .hero {
+    padding: 90px 15px 50px;
+  }
+
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .title-accent {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
   }
 
   .hero-stats {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
+  }
+
+  .stat-item {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .feature-card {
+    padding: 25px 20px;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.1rem;
   }
 }

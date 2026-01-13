@@ -283,27 +283,65 @@
 
 @media screen and (max-width: 768px) {
   .games-header {
-    padding: 60px 20px 40px;
+    padding: 100px 20px 40px;
   }
 
   .games-header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    gap: 10px;
+  }
+
+  .games-header p {
+    font-size: 1rem;
   }
 
   .games-filters {
-    padding: 20px;
-    top: 80px;
+    padding: 15px;
+    top: 70px;
+  }
+
+  .search-box input {
+    padding: 12px 12px 12px 40px;
+    font-size: 0.95rem;
+  }
+
+  .filter-group select {
+    padding: 12px 35px 12px 15px;
+    font-size: 0.95rem;
   }
 
   .games-grid-section {
-    padding: 20px;
+    padding: 20px 15px;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .results-info {
+    font-size: 0.85rem;
+    padding: 0 5px;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
+  .games-header {
+    padding: 90px 15px 30px;
+  }
+
+  .games-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .games-filters {
+    padding: 12px;
+    gap: 10px;
+  }
+
   .games-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
   }
 
   .pagination {
