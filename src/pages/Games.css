@@ -1,0 +1,330 @@
+/* Games Page Styles */
+.games-page {
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* Games Header */
+.games-header {
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+  padding: 80px 40px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.games-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 50%, rgba(0, 128, 255, 0.1) 0%, transparent 40%);
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.games-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.header-icon {
+  color: #00ffff;
+  filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5));
+}
+
+.games-header p {
+  font-size: 1.2rem;
+  color: #b0b0b0;
+}
+
+/* Filters Section */
+.games-filters {
+  background: #0a0a0f;
+  padding: 30px 40px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+  position: sticky;
+  top: 80px;
+  z-index: 100;
+}
+
+.filters-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Search Box */
+.search-box {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00ffff;
+  font-size: 1rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 14px 14px 45px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.search-box input::placeholder {
+  color: #666;
+}
+
+/* Filter Groups */
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-icon {
+  color: #00ffff;
+}
+
+.filter-group select {
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #00ffff;
+}
+
+.filter-group select option {
+  background: #1a1a2e;
+  color: #ffffff;
+}
+
+/* Results Info */
+.results-info {
+  max-width: 1400px;
+  margin: 15px auto 0;
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+
+/* Games Grid Section */
+.games-grid-section {
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.no-results-icon {
+  font-size: 4rem;
+  color: rgba(0, 255, 255, 0.3);
+  margin-bottom: 20px;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.no-results p {
+  color: #b0b0b0;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 30px;
+  color: #00ffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: rgba(0, 255, 255, 0.2);
+  border-color: #00ffff;
+  transform: translateY(-2px);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.page-number {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-number:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.page-number.active {
+  background: linear-gradient(135deg, #00ffff 0%, #0080ff 100%);
+  border-color: transparent;
+  color: #000;
+  font-weight: 600;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+  .games-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-group select {
+    flex: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .games-header {
+    padding: 60px 20px 40px;
+  }
+
+  .games-header h1 {
+    font-size: 2rem;
+  }
+
+  .games-filters {
+    padding: 20px;
+    top: 80px;
+  }
+
+  .games-grid-section {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .pagination-btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .pagination-numbers {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page-number {
+    width: 35px;
+    height: 35px;
+    font-size: 0.85rem;
+  }
+}

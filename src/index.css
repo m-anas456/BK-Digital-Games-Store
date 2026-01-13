@@ -1,0 +1,120 @@
+/* ===================================
+   BK Digital Games - Index Styles
+   Global Reset and Variables
+=================================== */
+
+/* CSS Variables for Theme */
+:root {
+  /* Primary Colors */
+  --primary-cyan: #00ffff;
+  --primary-blue: #0080ff;
+  --primary-pink: #ff0080;
+  
+  /* Background Colors */
+  --bg-dark: #0a0a0f;
+  --bg-darker: #050508;
+  --bg-card: #12121a;
+  --bg-card-light: #1a1a2e;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-muted: #666666;
+  
+  /* Success/Error Colors */
+  --success: #00ff80;
+  --error: #ff4d4d;
+  --warning: #ffd700;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #00ffff 0%, #0080ff 100%);
+  --gradient-secondary: linear-gradient(135deg, #ff0080 0%, #ff4d4d 100%);
+  --gradient-dark: linear-gradient(145deg, #12121a 0%, #1a1a2e 100%);
+  
+  /* Borders */
+  --border-color: rgba(0, 255, 255, 0.1);
+  --border-color-hover: rgba(0, 255, 255, 0.4);
+  
+  /* Shadows */
+  --shadow-glow: 0 0 30px rgba(0, 255, 255, 0.2);
+  --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.4);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.4s ease;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 15px;
+  --radius-lg: 20px;
+  --radius-xl: 30px;
+  --radius-full: 50px;
+}
+
+/* Global Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Remove default list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove default button styles */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Make images easier to work with */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
