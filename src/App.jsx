@@ -4,6 +4,7 @@ import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import FloatingCart from './components/FloatingCart';
 import './App.css';
 
 // Lazy load pages for better performance
@@ -42,6 +43,9 @@ function App() {
               </Routes>
             </Suspense>
           </main>
+          
+          {/* Floating Cart Button */}
+          <FloatingCart />
           
           {/* Footer */}
           <Footer />
