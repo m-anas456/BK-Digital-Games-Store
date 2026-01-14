@@ -340,8 +340,8 @@
   }
 
   .games-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
   .pagination {
