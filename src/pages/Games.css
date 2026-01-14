@@ -297,7 +297,7 @@
 
   .games-filters {
     padding: 15px;
-    top: 70px;
+    top: 60px;
   }
 
   .search-box input {
@@ -311,12 +311,12 @@
   }
 
   .games-grid-section {
-    padding: 20px 15px;
+    padding: 20px 12px;
   }
 
   .games-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 12px;
   }
 
   .results-info {
@@ -327,31 +327,61 @@
 
 @media screen and (max-width: 500px) {
   .games-header {
-    padding: 90px 15px 30px;
+    padding: 85px 12px 25px;
   }
 
   .games-header h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .games-header p {
+    font-size: 0.9rem;
   }
 
   .games-filters {
-    padding: 12px;
-    gap: 10px;
+    padding: 10px;
+    gap: 8px;
+    top: 60px;
+  }
+
+  .search-box input {
+    padding: 10px 10px 10px 35px;
+    font-size: 0.9rem;
+  }
+
+  .search-icon {
+    font-size: 0.9rem;
+    left: 12px;
+  }
+
+  .filter-group select {
+    padding: 10px 30px 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .games-grid-section {
+    padding: 15px 10px;
   }
 
   .games-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 8px;
+  }
+
+  .results-info {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
   }
 
   .pagination {
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
+    margin-top: 20px;
   }
 
   .pagination-btn {
-    padding: 10px 16px;
-    font-size: 0.85rem;
+    padding: 8px 14px;
+    font-size: 0.8rem;
   }
 
   .pagination-numbers {
@@ -361,8 +391,8 @@
   }
 
   .page-number {
-    width: 35px;
-    height: 35px;
-    font-size: 0.85rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
   }
 }
