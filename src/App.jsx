@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import FloatingCart from './components/FloatingCart';
 import './App.css';
+import './styles/animations.css';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home'));

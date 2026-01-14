@@ -17,8 +17,8 @@
     0 10px 30px rgba(0, 255, 255, 0.4),
     0 0 20px rgba(0, 255, 255, 0.2);
   z-index: 1000;
-  transition: all 0.3s ease;
-  animation: floatIn 0.5s ease-out;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: floatIn 0.5s ease-out, floatHover 3s ease-in-out 0.5s infinite;
 }
 
 @keyframes floatIn {
@@ -32,12 +32,22 @@
   }
 }
 
+@keyframes floatHover {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .floating-cart:hover {
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-5px) scale(1.1);
   box-shadow: 
-    0 15px 40px rgba(0, 255, 255, 0.5),
-    0 0 30px rgba(0, 255, 255, 0.3);
+    0 20px 50px rgba(0, 255, 255, 0.6),
+    0 0 40px rgba(0, 255, 255, 0.4);
   color: #000;
+  animation: none;
 }
 
 .floating-cart-icon {
@@ -46,6 +56,13 @@
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
+  animation: cartWiggle 3s ease-in-out infinite;
+}
+
+@keyframes cartWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
 }
 
 .floating-cart-badge {
@@ -63,6 +80,18 @@
   justify-content: center;
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+  animation: badgePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.8);
+  }
 }
 
 .floating-cart-text {
