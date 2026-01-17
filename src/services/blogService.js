@@ -163,6 +163,54 @@ export const fetchGamingVideos = async () => {
       category: 'Gameplay',
       relatedGame: 'Elden Ring',
       duration: '30:00'
+    },
+    {
+      id: `video-7-${Date.now()}`,
+      type: 'video',
+      title: 'Final Fantasy XVI - Combat Guide',
+      excerpt: 'Master the action-packed combat system with these pro tips.',
+      videoUrl: 'https://www.youtube.com/embed/aPxQaPHlgfE',
+      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Final_Fantasy_XVI_cover_art.png/220px-Final_Fantasy_XVI_cover_art.png',
+      date: new Date().toISOString().split('T')[0],
+      category: 'Gameplay',
+      relatedGame: 'Final Fantasy XVI',
+      duration: '25:00'
+    },
+    {
+      id: `video-8-${Date.now()}`,
+      type: 'video',
+      title: 'Resident Evil 4 Remake - Full Walkthrough',
+      excerpt: 'Complete guide through the terrifying remake of a classic.',
+      videoUrl: 'https://www.youtube.com/embed/W3Z4cbjvfSk',
+      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/d/df/Resident_Evil_4_remake_cover_art.jpg',
+      date: new Date().toISOString().split('T')[0],
+      category: 'Gameplay',
+      relatedGame: 'Resident Evil 4',
+      duration: '4:30:00'
+    },
+    {
+      id: `video-9-${Date.now()}`,
+      type: 'video',
+      title: 'Baldurs Gate 3 - Best Builds Guide',
+      excerpt: 'Create the most powerful characters with these optimized builds.',
+      videoUrl: 'https://www.youtube.com/embed/1T22wNnVDU4',
+      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/1/12/Baldur%27s_Gate_3_cover_art.jpg',
+      date: new Date().toISOString().split('T')[0],
+      category: 'Gameplay',
+      relatedGame: 'Baldurs Gate 3',
+      duration: '1:00:00'
+    },
+    {
+      id: `video-10-${Date.now()}`,
+      type: 'video',
+      title: 'Alan Wake 2 - Story Explained',
+      excerpt: 'Unravel the mind-bending narrative of this psychological thriller.',
+      videoUrl: 'https://www.youtube.com/embed/dlQ3FeNu5Yk',
+      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/2/2a/Alan_Wake_2_cover.jpg',
+      date: new Date().toISOString().split('T')[0],
+      category: 'Gameplay',
+      relatedGame: 'Alan Wake 2',
+      duration: '35:00'
     }
   ];
   
@@ -277,6 +325,61 @@ const getFallbackNews = () => [
     date: new Date().toISOString().split('T')[0],
     category: 'News',
     relatedGame: null
+  },
+  {
+    id: `news-fallback-4`,
+    type: 'news',
+    title: 'Spider-Man 2 Wins Game of the Year',
+    excerpt: 'Insomniac Games superhero sequel takes home the top prize at The Game Awards.',
+    content: 'Marvels Spider-Man 2 has been crowned Game of the Year at the prestigious Game Awards ceremony. The game impressed critics and players alike with its seamless switching between Peter Parker and Miles Morales, improved combat, and stunning recreation of New York City.',
+    image: 'https://upload.wikimedia.org/wikipedia/en/0/0e/Spider-Man_2_PS5_cover_art.jpg',
+    date: new Date().toISOString().split('T')[0],
+    category: 'News',
+    relatedGame: "Marvel's Spider-Man 2"
+  },
+  {
+    id: `news-fallback-5`,
+    type: 'news',
+    title: 'Final Fantasy VII Rebirth Breaks Records',
+    excerpt: 'Square Enix announces record-breaking sales for the second part of the remake trilogy.',
+    content: 'Final Fantasy VII Rebirth has achieved remarkable success, selling millions of copies in its first week. The game expands the story beyond Midgar, featuring an expansive open world and enhanced combat system that has delighted fans of the original.',
+    image: 'https://upload.wikimedia.org/wikipedia/en/7/79/Final_Fantasy_VII_Rebirth_box_art.jpg',
+    date: new Date().toISOString().split('T')[0],
+    category: 'News',
+    relatedGame: 'Final Fantasy VII Rebirth'
+  },
+  {
+    id: `news-fallback-6`,
+    type: 'news',
+    title: 'Hogwarts Legacy DLC Announced',
+    excerpt: 'Warner Bros reveals new content coming to the magical open-world RPG.',
+    content: 'Fans of Hogwarts Legacy have reason to celebrate as new downloadable content has been announced. The expansion will add new quests, locations, and magical abilities to the already expansive wizarding world adventure.',
+    image: 'https://upload.wikimedia.org/wikipedia/en/c/cf/Hogwarts_Legacy_cover_art.png',
+    date: new Date().toISOString().split('T')[0],
+    category: 'News',
+    relatedGame: 'Hogwarts Legacy'
+  },
+  {
+    id: `news-fallback-7`,
+    type: 'news',
+    title: 'PS5 Pro Performance Benchmarks Released',
+    excerpt: 'First tests show significant improvements in frame rates and visual fidelity.',
+    content: 'Early benchmarks of the PlayStation 5 Pro reveal impressive performance gains. Games like God of War Ragnarok and Horizon Forbidden West now run at stable 60fps with enhanced ray tracing, while new titles are taking full advantage of the upgraded hardware.',
+    image: 'https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=800',
+    date: new Date().toISOString().split('T')[0],
+    category: 'News',
+    relatedGame: null
+  },
+  {
+    id: `news-fallback-8`,
+    type: 'news',
+    title: 'Death Stranding 2 Release Date Announced',
+    excerpt: 'Hideo Kojimas highly anticipated sequel gets an official launch window.',
+    content: 'Death Stranding 2: On The Beach has received an official release date. The game continues the story of Sam Porter Bridges and promises to deliver another unique gaming experience with new gameplay mechanics and an all-star cast.',
+    image: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/Death_Stranding_2_cover_art.jpg/220px-Death_Stranding_2_cover_art.jpg',
+    date: new Date().toISOString().split('T')[0],
+    category: 'News',
+    relatedGame: 'Death Stranding 2'
   }
 ];
 
@@ -310,6 +413,51 @@ const getFallbackScreenshots = () => [
     date: new Date().toISOString().split('T')[0],
     category: 'Screenshots',
     relatedGame: 'Horizon Zero Dawn'
+  },
+  {
+    id: `screenshot-fallback-3`,
+    type: 'screenshot',
+    title: 'God of War - Epic Battle Moments',
+    excerpt: 'Intense combat screenshots from Kratos Norse journey.',
+    images: [
+      'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=800',
+      'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800',
+      'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800',
+      'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800'
+    ],
+    date: new Date().toISOString().split('T')[0],
+    category: 'Screenshots',
+    relatedGame: 'God of War'
+  },
+  {
+    id: `screenshot-fallback-4`,
+    type: 'screenshot',
+    title: 'Spider-Man - New York City Swinging',
+    excerpt: 'Web-swinging through Manhattan never looked so good.',
+    images: [
+      'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800',
+      'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800',
+      'https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?w=800',
+      'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800'
+    ],
+    date: new Date().toISOString().split('T')[0],
+    category: 'Screenshots',
+    relatedGame: "Marvel's Spider-Man"
+  },
+  {
+    id: `screenshot-fallback-5`,
+    type: 'screenshot',
+    title: 'Elden Ring - The Lands Between',
+    excerpt: 'Explore the dark fantasy world of the Elden Ring.',
+    images: [
+      'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800',
+      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800',
+      'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800',
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800'
+    ],
+    date: new Date().toISOString().split('T')[0],
+    category: 'Screenshots',
+    relatedGame: 'Elden Ring'
   }
 ];
 
@@ -335,6 +483,39 @@ const getFallbackFacts = () => [
     date: new Date().toISOString().split('T')[0],
     category: 'Facts',
     relatedGame: 'Red Dead Redemption 2'
+  },
+  {
+    id: `fact-fallback-3`,
+    type: 'fact',
+    title: 'Spider-Man PS4: Hidden Easter Eggs',
+    excerpt: 'Secret references you might have missed in the web-slingers adventure.',
+    content: 'The Avengers Tower appears in the skyline. You can find the bar from Daredevil. Theres a hidden tribute to Stan Lee. The Sanctum Sanctorum from Doctor Strange is explorable. Oscorp references hint at future villains. Miles Morales was introduced as a side character before his own game. The suit selection includes comic-accurate designs spanning decades.',
+    image: 'https://upload.wikimedia.org/wikipedia/en/e/e1/Spider-Man_PS4_cover.jpg',
+    date: new Date().toISOString().split('T')[0],
+    category: 'Facts',
+    relatedGame: "Marvel's Spider-Man"
+  },
+  {
+    id: `fact-fallback-4`,
+    type: 'fact',
+    title: 'God of War: From Greece to Norse',
+    excerpt: 'How Santa Monica Studio reinvented a beloved franchise.',
+    content: 'The development took 5 years. The single-shot camera was incredibly challenging to implement. Christopher Judge was mocapped for every Kratos movement. Atreus was designed to never be annoying to players. The Leviathan Axe recall was inspired by Thors Mjolnir. Greek mythology elements are hidden throughout the game. The ending was changed multiple times during development.',
+    image: 'https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_4_cover.jpg',
+    date: new Date().toISOString().split('T')[0],
+    category: 'Facts',
+    relatedGame: 'God of War'
+  },
+  {
+    id: `fact-fallback-5`,
+    type: 'fact',
+    title: 'Ghost of Tsushima: Samurai Accuracy',
+    excerpt: 'How Sucker Punch honored Japanese culture and history.',
+    content: 'The development team visited Tsushima Island multiple times. A Kurosawa Mode was added to honor legendary filmmaker Akira Kurosawa. The game features authentic Japanese voice acting. Real samurai combat techniques were studied. The Mongol invasion depicted was a real historical event. Wind replaces traditional waypoints for navigation. The PS5 version loads in under 2 seconds.',
+    image: 'https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg',
+    date: new Date().toISOString().split('T')[0],
+    category: 'Facts',
+    relatedGame: 'Ghost of Tsushima'
   }
 ];
 

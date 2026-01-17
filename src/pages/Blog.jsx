@@ -134,28 +134,17 @@ const Blog = () => {
 
   return (
     <div className="blog-page">
-      {/* Hero Section */}
-      <section className="blog-hero">
-        <div className="blog-hero-background">
-          <div className="blog-particles"></div>
-        </div>
-        <div className="blog-hero-content">
-          <h1 className="blog-title">
-            <span className="title-icon"><FaGamepad /></span>
-            Games Blog
-          </h1>
-          <p className="blog-subtitle">
-            Latest news, fascinating facts, gameplay videos, and stunning screenshots
-          </p>
-          {lastUpdated && (
-            <p className="last-updated">
-              Last updated: {getTimeAgo(lastUpdated)}
-              <button className="refresh-btn" onClick={loadBlogContent} disabled={loading}>
-                <FaSync className={loading ? 'spinning' : ''} />
-              </button>
-            </p>
-          )}
-        </div>
+      {/* Compact Header */}
+      <section className="blog-header">
+        <h1 className="blog-title">
+          <FaGamepad className="title-icon" />
+          Games Blog
+        </h1>
+        {lastUpdated && (
+          <button className="refresh-btn" onClick={loadBlogContent} disabled={loading} title="Refresh content">
+            <FaSync className={loading ? 'spinning' : ''} />
+          </button>
+        )}
       </section>
 
       {/* Search and Filters */}
@@ -166,7 +155,7 @@ const Blog = () => {
             <FaSearch className="search-icon" />
             <input
               type="text"
-              placeholder="Search news, facts, videos..."
+              placeholder="Search..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="search-input"
