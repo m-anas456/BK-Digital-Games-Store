@@ -173,8 +173,8 @@ input, textarea, select {
   transition: opacity 300ms;
 }
 
-/* Page Loader */
-.page-loader {
+/* Suspense Loader */
+.suspense-loader {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,7 +196,7 @@ input, textarea, select {
   to { transform: rotate(360deg); }
 }
 
-.page-loader p {
+.suspense-loader p {
   color: #b0b0b0;
   font-size: 1rem;
 }

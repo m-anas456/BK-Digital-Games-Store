@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import FloatingCart from './components/FloatingCart';
+import PageLoader from './components/PageLoader';
 import './App.css';
 import './styles/animations.css';
 
@@ -17,9 +18,9 @@ const Blog = lazy(() => import('./pages/Blog'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Cart = lazy(() => import('./pages/Cart'));
 
-// Loading component
-const PageLoader = () => (
-  <div className="page-loader">
+// Loading component for Suspense fallback
+const SuspenseLoader = () => (
+  <div className="suspense-loader">
     <div className="loader-spinner"></div>
     <p>Loading...</p>
   </div>
@@ -31,13 +32,14 @@ function App() {
       <CartProvider>
         <Router>
           <ScrollToTop />
+          <PageLoader />
           <div className="app">
             {/* Navigation Bar */}
             <Navbar />
             
             {/* Main Content with Suspense for lazy loading */}
             <main className="main-content">
-              <Suspense fallback={<PageLoader />}>
+              <Suspense fallback={<SuspenseLoader />}>
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/games" element={<Games />} />
