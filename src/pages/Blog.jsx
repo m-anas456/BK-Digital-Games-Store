@@ -61,7 +61,7 @@ const Blog = () => {
       );
     }
 
-    return filtered;
+    return filtered.reverse();
   }, [posts, activeFilter, activeType, searchQuery]);
 
   // Format date
