@@ -306,13 +306,9 @@ const Blog = () => {
                     src={selectedPost.image} 
                     alt={selectedPost.title}
                     onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.classList.add('image-failed');
+                      e.target.style.opacity = '0';
                     }}
                   />
-                  <div className="blog-image-placeholder">
-                    <img src="/logo.png" alt="BK Digital Games" className="placeholder-logo" />
-                  </div>
                 </div>
                 <div className="modal-body">
                   <div className="modal-meta">
@@ -401,13 +397,9 @@ const Blog = () => {
                     src={selectedPost.images[currentImageIndex]} 
                     alt={`${selectedPost.title} - Image ${currentImageIndex + 1}`}
                     onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.querySelector('.gallery-placeholder')?.classList.add('show');
+                      e.target.style.opacity = '0';
                     }}
                   />
-                  <div className="gallery-placeholder blog-image-placeholder">
-                    <img src="/logo.png" alt="BK Digital Games" className="placeholder-logo" />
-                  </div>
                   <button className="gallery-nav next" onClick={nextImage}>
                     <FaChevronRight />
                   </button>
@@ -426,13 +418,9 @@ const Blog = () => {
                         src={img} 
                         alt={`Thumbnail ${index + 1}`}
                         onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.parentElement.classList.add('thumb-failed');
+                          e.target.style.opacity = '0';
                         }}
                       />
-                      <div className="thumb-placeholder">
-                        <img src="/logo.png" alt="BK Digital Games" />
-                      </div>
                     </button>
                   ))}
                 </div>
