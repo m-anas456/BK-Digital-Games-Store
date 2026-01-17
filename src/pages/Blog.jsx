@@ -237,9 +237,14 @@ const Blog = () => {
                       alt={post.title}
                       loading="lazy"
                       onError={(e) => {
-                        e.target.src = 'https://images.unsplash.com/photo-1493711662062-fa541f7f3d24?w=800';
+                        e.target.style.display = 'none';
+                        e.target.parentElement.classList.add('image-failed');
                       }}
                     />
+                    <div className="blog-image-placeholder">
+                      <img src="/logo.png" alt="BK Digital Games" className="placeholder-logo" />
+                      <span>{post.title}</span>
+                    </div>
                     <div className="post-type-badge">
                       {getTypeIcon(post.type)}
                       <span>{post.type}</span>
@@ -301,9 +306,13 @@ const Blog = () => {
                     src={selectedPost.image} 
                     alt={selectedPost.title}
                     onError={(e) => {
-                      e.target.src = 'https://images.unsplash.com/photo-1493711662062-fa541f7f3d24?w=800';
+                      e.target.style.display = 'none';
+                      e.target.parentElement.classList.add('image-failed');
                     }}
                   />
+                  <div className="blog-image-placeholder">
+                    <img src="/logo.png" alt="BK Digital Games" className="placeholder-logo" />
+                  </div>
                 </div>
                 <div className="modal-body">
                   <div className="modal-meta">
@@ -392,9 +401,13 @@ const Blog = () => {
                     src={selectedPost.images[currentImageIndex]} 
                     alt={`${selectedPost.title} - Image ${currentImageIndex + 1}`}
                     onError={(e) => {
-                      e.target.src = 'https://images.unsplash.com/photo-1493711662062-fa541f7f3d24?w=800';
+                      e.target.style.display = 'none';
+                      e.target.parentElement.querySelector('.gallery-placeholder')?.classList.add('show');
                     }}
                   />
+                  <div className="gallery-placeholder blog-image-placeholder">
+                    <img src="/logo.png" alt="BK Digital Games" className="placeholder-logo" />
+                  </div>
                   <button className="gallery-nav next" onClick={nextImage}>
                     <FaChevronRight />
                   </button>
@@ -413,9 +426,13 @@ const Blog = () => {
                         src={img} 
                         alt={`Thumbnail ${index + 1}`}
                         onError={(e) => {
-                          e.target.src = 'https://images.unsplash.com/photo-1493711662062-fa541f7f3d24?w=800';
+                          e.target.style.display = 'none';
+                          e.target.parentElement.classList.add('thumb-failed');
                         }}
                       />
+                      <div className="thumb-placeholder">
+                        <img src="/logo.png" alt="BK Digital Games" />
+                      </div>
                     </button>
                   ))}
                 </div>
