@@ -34,6 +34,10 @@ const Home = () => {
               <FaPlaystation />
               Browse Games
             </Link>
+            <Link to="/blog" className="btn btn-secondary">
+              <FaNewspaper />
+              Blog
+            </Link>
             <Link to="/contact" className="btn btn-secondary">
               Contact Us
               <FaArrowRight />
