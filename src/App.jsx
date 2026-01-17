@@ -12,6 +12,7 @@ import './styles/animations.css';
 const Home = lazy(() => import('./pages/Home'));
 const Games = lazy(() => import('./pages/Games'));
 const GameDetail = lazy(() => import('./pages/GameDetail'));
+const Blog = lazy(() => import('./pages/Blog'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Cart = lazy(() => import('./pages/Cart'));
 
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/games" element={<Games />} />
                 <Route path="/game/:id" element={<GameDetail />} />
+                <Route path="/blog" element={<Blog />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/cart" element={<Cart />} />
               </Routes>
