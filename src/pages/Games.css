@@ -283,33 +283,71 @@
 
 @media screen and (max-width: 768px) {
   .games-header {
-    padding: 70px 15px 15px;
+    padding: 70px 15px 8px;
   }
 
   .games-header h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     gap: 8px;
-    margin-bottom: 5px;
+    margin-bottom: 0;
+  }
+
+  .header-icon {
+    font-size: 1.5rem;
   }
 
   .games-header p {
-    font-size: 0.9rem;
     display: none;
   }
 
   .games-filters {
-    padding: 12px;
+    padding: 10px 12px;
     top: 60px;
   }
 
+  .filters-container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .search-box {
+    flex: 1;
+    min-width: 0;
+  }
+
   .search-box input {
-    padding: 10px 10px 10px 38px;
+    padding: 12px 12px 12px 42px;
     font-size: 0.9rem;
+    border-radius: 25px;
+  }
+
+  .search-icon {
+    font-size: 1.1rem;
+    left: 14px;
+  }
+
+  .filter-group {
+    flex-shrink: 0;
   }
 
   .filter-group select {
-    padding: 10px 30px 10px 12px;
-    font-size: 0.9rem;
+    padding: 12px 32px 12px 12px;
+    font-size: 0.85rem;
+    min-width: auto;
+    border-radius: 25px;
+  }
+
+  .filter-icon {
+    display: none;
+  }
+
+  .results-info {
+    font-size: 0.75rem;
+    padding: 8px 0 0;
+    margin-top: 8px;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
   }
 
   .games-grid-section {
@@ -321,45 +359,71 @@
     gap: 15px;
   }
 
-  .results-info {
-    font-size: 0.8rem;
-    padding: 0 5px;
+  /* Mobile Animations */
+  .game-card {
+    animation: slideInUp 0.5s ease forwards;
+  }
+
+  .game-card:nth-child(1) { animation-delay: 0.05s; }
+  .game-card:nth-child(2) { animation-delay: 0.1s; }
+  .game-card:nth-child(3) { animation-delay: 0.15s; }
+  .game-card:nth-child(4) { animation-delay: 0.2s; }
+  .game-card:nth-child(5) { animation-delay: 0.25s; }
+  .game-card:nth-child(6) { animation-delay: 0.3s; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @media screen and (max-width: 500px) {
   .games-header {
-    padding: 65px 10px 10px;
+    padding: 65px 10px 5px;
   }
 
   .games-header h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 0;
   }
 
-  .games-header p {
-    display: none;
+  .header-icon {
+    font-size: 1.3rem;
   }
 
   .games-filters {
     padding: 8px 10px;
-    gap: 8px;
-    top: 60px;
+    gap: 6px;
+  }
+
+  .filters-container {
+    gap: 6px;
   }
 
   .search-box input {
-    padding: 8px 8px 8px 32px;
+    padding: 10px 10px 10px 38px;
     font-size: 0.85rem;
   }
 
   .search-icon {
-    font-size: 0.85rem;
-    left: 10px;
+    font-size: 1rem;
+    left: 12px;
   }
 
   .filter-group select {
-    padding: 8px 28px 8px 10px;
+    padding: 10px 28px 10px 10px;
     font-size: 0.8rem;
+  }
+
+  .results-info {
+    font-size: 0.7rem;
+    padding: 6px 0 0;
   }
 
   .games-grid-section {

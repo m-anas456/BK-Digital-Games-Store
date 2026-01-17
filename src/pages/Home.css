@@ -856,6 +856,66 @@
   .cta-content p {
     font-size: 1rem;
   }
+
+  /* Mobile Animations */
+  .game-card {
+    animation: mobileSlideIn 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  .game-card:nth-child(1) { animation-delay: 0.1s; }
+  .game-card:nth-child(2) { animation-delay: 0.15s; }
+  .game-card:nth-child(3) { animation-delay: 0.2s; }
+  .game-card:nth-child(4) { animation-delay: 0.25s; }
+
+  .feature-card {
+    animation: mobileSlideIn 0.4s ease forwards;
+    opacity: 0;
+  }
+
+  .feature-card:nth-child(1) { animation-delay: 0.1s; }
+  .feature-card:nth-child(2) { animation-delay: 0.2s; }
+  .feature-card:nth-child(3) { animation-delay: 0.3s; }
+  .feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+  .btn {
+    transition: transform 0.2s ease;
+  }
+
+  .btn:active {
+    transform: scale(0.95);
+  }
+
+  .stat {
+    animation: mobilePopIn 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  .stat:nth-child(1) { animation-delay: 0.2s; }
+  .stat:nth-child(2) { animation-delay: 0.3s; }
+  .stat:nth-child(3) { animation-delay: 0.4s; }
+}
+
+@keyframes mobileSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobilePopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media screen and (max-width: 480px) {
