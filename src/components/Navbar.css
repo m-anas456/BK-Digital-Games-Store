@@ -109,10 +109,6 @@
   background: rgba(0, 255, 255, 0.05);
 }
 
-[data-theme="light"] .nav-link:hover {
-  background: rgba(0, 100, 150, 0.08);
-}
-
 .nav-link:hover::before,
 .nav-link.active::before {
   width: 60%;
@@ -121,10 +117,6 @@
 .nav-link.active {
   color: var(--primary-cyan);
   background: rgba(0, 255, 255, 0.1);
-}
-
-[data-theme="light"] .nav-link.active {
-  background: rgba(0, 100, 150, 0.1);
 }
 
 /* Cart Link Styles */
@@ -151,54 +143,38 @@
   box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-  background: rgba(0, 255, 255, 0.1);
-  border: 1px solid var(--border-color);
-  color: var(--primary-cyan);
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
+/* Desktop Cart Button */
+.desktop-cart {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
+  color: var(--primary-cyan);
+  padding: 10px 12px;
+  border-radius: 50%;
+  cursor: pointer;
   transition: all 0.3s ease;
   margin-left: 10px;
+  font-size: 1.2rem;
 }
 
-.theme-toggle:hover {
+.desktop-cart:hover {
   background: rgba(0, 255, 255, 0.2);
   border-color: var(--border-color-hover);
   transform: scale(1.1);
+  color: var(--primary-cyan);
 }
 
-[data-theme="light"] .theme-toggle {
-  background: rgba(0, 100, 150, 0.1);
+.desktop-cart .cart-badge {
+  top: -5px;
+  right: -5px;
 }
 
-[data-theme="light"] .theme-toggle:hover {
-  background: rgba(0, 100, 150, 0.2);
-}
-
-.theme-icon {
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-}
-
-.theme-icon.sun {
-  color: #ffcc00;
-}
-
-.theme-icon.moon {
-  color: #a0a0ff;
-}
-
-.theme-item {
+/* Hide cart in mobile menu by default - show only in desktop */
+.cart-item-mobile {
   display: none;
-}
-
-.desktop-theme {
-  display: flex;
 }
 
 /* Mobile Menu Icon */
@@ -314,13 +290,7 @@
     border-color: rgba(0, 255, 255, 0.3);
   }
 
-  [data-theme="light"] .nav-link:hover,
-  [data-theme="light"] .nav-link.active {
-    background: rgba(0, 100, 150, 0.12);
-    border-color: rgba(0, 100, 150, 0.3);
-  }
-
-  .cart-item {
+  .cart-item-mobile {
     margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid var(--border-color);
@@ -329,41 +299,18 @@
     justify-content: center;
   }
 
-  .cart-link {
+  .cart-item-mobile .cart-link {
     justify-content: center;
     gap: 10px;
     width: 80%;
   }
 
-  .cart-link::after {
+  .cart-item-mobile .cart-link::after {
     content: 'Cart';
     font-size: 1.1rem;
   }
 
-  /* Theme toggle in mobile menu */
-  .theme-item {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .theme-item .theme-toggle {
-    width: 80%;
-    border-radius: 10px;
-    padding: 14px 20px;
-    margin-left: 0;
-    gap: 10px;
-    border: 1px solid var(--border-color);
-  }
-
-  .theme-item .theme-toggle::after {
-    content: 'Toggle Theme';
-    font-size: 1rem;
-    color: var(--text-secondary);
-  }
-
-  .desktop-theme {
+  .desktop-cart {
     display: none;
   }
 

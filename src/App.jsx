@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
-import { ThemeProvider } from './context/ThemeContext';
 import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -28,14 +27,13 @@ const SuspenseLoader = () => (
 
 function App() {
   return (
-    <ThemeProvider>
-      <CartProvider>
-        <Router>
-          <ScrollToTop />
-          <PageLoader />
-          <div className="app">
-            {/* Navigation Bar */}
-            <Navbar />
+    <CartProvider>
+      <Router>
+        <ScrollToTop />
+        <PageLoader />
+        <div className="app">
+          {/* Navigation Bar */}
+          <Navbar />
             
             {/* Main Content with Suspense for lazy loading */}
             <main className="main-content">
@@ -59,8 +57,4 @@ function App() {
         </div>
       </Router>
     </CartProvider>
-    </ThemeProvider>
-  );
-}
 
-export default App
