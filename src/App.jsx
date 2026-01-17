@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -26,28 +27,29 @@ const PageLoader = () => (
 
 function App() {
   return (
-    <CartProvider>
-      <Router>
-        <ScrollToTop />
-        <div className="app">
-          {/* Navigation Bar */}
-          <Navbar />
-          
-          {/* Main Content with Suspense for lazy loading */}
-          <main className="main-content">
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/games" element={<Games />} />
-                <Route path="/game/:id" element={<GameDetail />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/cart" element={<Cart />} />
-              </Routes>
-            </Suspense>
-          </main>
-          
-          {/* Floating Cart Button */}
+    <ThemeProvider>
+      <CartProvider>
+        <Router>
+          <ScrollToTop />
+          <div className="app">
+            {/* Navigation Bar */}
+            <Navbar />
+            
+            {/* Main Content with Suspense for lazy loading */}
+            <main className="main-content">
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/games" element={<Games />} />
+                  <Route path="/game/:id" element={<GameDetail />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/cart" element={<Cart />} />
+                </Routes>
+              </Suspense>
+            </main>
+            
+            {/* Floating Cart Button */}
           <FloatingCart />
           
           {/* Footer */}
@@ -55,6 +57,7 @@ function App() {
         </div>
       </Router>
     </CartProvider>
+    </ThemeProvider>
   );
 }
 

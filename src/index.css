@@ -52,6 +52,29 @@
   --radius-full: 50px;
 }
 
+/* Light Mode Theme */
+[data-theme="light"] {
+  --bg-dark: #f5f7fa;
+  --bg-darker: #e8ecf1;
+  --bg-card: #ffffff;
+  --bg-card-light: #f0f4f8;
+  
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  
+  --primary-cyan: #0088aa;
+  --primary-blue: #0066cc;
+  
+  --border-color: rgba(0, 100, 150, 0.15);
+  --border-color-hover: rgba(0, 100, 150, 0.4);
+  
+  --shadow-glow: 0 0 30px rgba(0, 100, 150, 0.15);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.1);
+  
+  --gradient-dark: linear-gradient(145deg, #ffffff 0%, #f0f4f8 100%);
+}
+
 /* Global Reset */
 *,
 *::before,

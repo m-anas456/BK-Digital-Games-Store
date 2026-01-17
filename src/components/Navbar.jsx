@@ -1,11 +1,13 @@
 import { Link, NavLink } from 'react-router-dom';
-import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
+import { FaShoppingCart, FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
+import { useTheme } from '../context/ThemeContext';
 import { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
   const { getTotalItems } = useCart();
+  const { isDarkMode, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -98,7 +100,17 @@ const Navbar = () => {
               )}
             </NavLink>
           </li>
+          <li className="nav-item theme-item">
+            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+              {isDarkMode ? <FaSun className="theme-icon sun" /> : <FaMoon className="theme-icon moon" />}
+            </button>
+          </li>
         </ul>
+
+        {/* Desktop Theme Toggle */}
+        <button className="theme-toggle desktop-theme" onClick={toggleTheme} aria-label="Toggle theme">
+          {isDarkMode ? <FaSun className="theme-icon sun" /> : <FaMoon className="theme-icon moon" />}
+        </button>
       </div>
     </nav>
   );
