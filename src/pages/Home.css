@@ -486,6 +486,144 @@
   line-height: 1.6;
 }
 
+/* Games Sections (Featured) */
+.games-section {
+  padding: 80px 40px;
+  background: linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header .section-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  margin-bottom: 0;
+  -webkit-text-fill-color: unset;
+  background: none;
+  color: #fff;
+}
+
+.section-icon {
+  font-size: 1.5rem;
+}
+
+.section-icon.fire {
+  color: #ff6b35;
+  filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.5));
+}
+
+.view-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: #00ffff;
+  transform: translateX(5px);
+}
+
+.view-all-btn svg {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.view-all-btn:hover svg {
+  transform: translateX(5px);
+}
+
+.home-games-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Blog Promo Section */
+.blog-promo-section {
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #12121a 0%, #1a1a2e 50%, #0f0f15 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-promo-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 50%, rgba(0, 128, 255, 0.08) 0%, transparent 40%);
+}
+
+.blog-promo-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.blog-promo-icon {
+  font-size: 4rem;
+  color: #00ffff;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.blog-promo-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ffffff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blog-promo-content p {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+.blog-promo-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* CTA Section */
 .cta {
   padding: 100px 40px;
@@ -574,6 +712,16 @@
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .home-games-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .home-games-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -646,6 +794,55 @@
 
   .section-subtitle {
     font-size: 1rem;
+  }
+
+  /* Games Section Mobile */
+  .games-section {
+    padding: 50px 20px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .section-header .section-title {
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .home-games-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Blog Promo Mobile */
+  .blog-promo-section {
+    padding: 50px 20px;
+  }
+
+  .blog-promo-icon {
+    font-size: 3rem;
+  }
+
+  .blog-promo-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .blog-promo-content p {
+    font-size: 1rem;
+  }
+
+  .blog-promo-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blog-promo-buttons .btn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
   }
 
   .cta {

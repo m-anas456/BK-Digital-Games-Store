@@ -149,11 +149,35 @@
   font-size: 1.8rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  z-index: 1001;
+  padding: 8px;
+  position: relative;
 }
 
 .menu-icon:hover {
   color: #0080ff;
   transform: scale(1.1);
+}
+
+/* Menu Overlay */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Responsive Styles */
@@ -175,6 +199,12 @@
   }
 
   .menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-overlay {
     display: block;
   }
 
@@ -183,30 +213,54 @@
     flex-direction: column;
     position: fixed;
     top: 70px;
-    left: -100%;
-    width: 100%;
+    right: -100%;
+    width: 280px;
     height: calc(100vh - 70px);
     background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 100%);
-    padding: 40px 20px;
-    gap: 20px;
-    transition: all 0.5s ease;
+    padding: 30px 20px;
+    gap: 10px;
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     overflow-y: auto;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    border-left: 1px solid rgba(0, 255, 255, 0.1);
   }
 
   .nav-menu.active {
-    left: 0;
+    right: 0;
   }
 
   .nav-link {
-    font-size: 1.2rem;
-    padding: 15px 25px;
+    font-size: 1.1rem;
+    padding: 15px 20px;
     width: 100%;
     text-align: center;
+    justify-content: center;
     border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: rgba(0, 255, 255, 0.15);
+    border-color: rgba(0, 255, 255, 0.3);
   }
 
   .cart-item {
-    margin-top: 20px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+  }
+
+  .cart-link {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .cart-link::after {
+    content: 'Cart';
+    font-size: 1.1rem;
   }
 }
 
@@ -231,10 +285,17 @@
   .nav-menu {
     top: 60px;
     height: calc(100vh - 60px);
-    padding: 30px 15px;
+    width: 260px;
+    padding: 20px 15px;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    padding: 12px 15px;
   }
 
   .menu-icon {
     font-size: 1.5rem;
+    padding: 6px;
   }
 }

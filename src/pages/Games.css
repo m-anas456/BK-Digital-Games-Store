@@ -315,8 +315,8 @@
   }
 
   .games-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .results-info {
@@ -364,8 +364,8 @@
   }
 
   .games-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .results-info {

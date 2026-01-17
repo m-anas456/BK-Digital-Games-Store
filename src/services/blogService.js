@@ -89,16 +89,15 @@ export const fetchGameScreenshots = async () => {
 
 // Fetch gaming videos from YouTube (using search embed URLs)
 export const fetchGamingVideos = async () => {
-  // YouTube Data API requires API key, so we'll use curated video IDs
-  // These are popular gaming channels that frequently upload
+  // Using YouTube video IDs - thumbnails from YouTube's img server always work
   const popularGamingVideos = [
     {
       id: `video-1-${Date.now()}`,
       type: 'video',
       title: 'God of War Ragnarok - Full Gameplay Walkthrough',
       excerpt: 'Experience the epic conclusion of the Norse saga with Kratos and Atreus.',
-      videoUrl: 'https://www.youtube.com/embed/EE-4GvjKcfs',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/e/ee/God_of_War_Ragnar%C3%B6k_cover.jpg',
+      videoUrl: 'https://www.youtube.com/embed/hfJ4Km46A-0',
+      thumbnail: 'https://i.ytimg.com/vi/hfJ4Km46A-0/maxresdefault.jpg',
       date: new Date().toISOString().split('T')[0],
       category: 'Gameplay',
       relatedGame: 'God of War Ragnarok',
@@ -107,110 +106,110 @@ export const fetchGamingVideos = async () => {
     {
       id: `video-2-${Date.now()}`,
       type: 'video',
-      title: "Marvel's Spider-Man 2 - All Boss Fights",
-      excerpt: 'Watch all the intense boss battles from the latest Spider-Man adventure.',
-      videoUrl: 'https://www.youtube.com/embed/nq1M_Wc4FIc',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/0/0e/Spider-Man_2_PS5_cover_art.jpg',
+      title: "Marvel's Spider-Man 2 - Official Trailer",
+      excerpt: 'Watch all the intense action from the latest Spider-Man adventure.',
+      videoUrl: 'https://www.youtube.com/embed/qIQ3xNqkVC4',
+      thumbnail: 'https://i.ytimg.com/vi/qIQ3xNqkVC4/maxresdefault.jpg',
       date: new Date().toISOString().split('T')[0],
-      category: 'Gameplay',
+      category: 'Trailers',
       relatedGame: "Marvel's Spider-Man 2",
-      duration: '2:30:00'
+      duration: '3:30'
     },
     {
       id: `video-3-${Date.now()}`,
       type: 'video',
-      title: 'Horizon Forbidden West - Complete Story',
+      title: 'Horizon Forbidden West - Story Trailer',
       excerpt: 'The full story of Aloy in the Forbidden West explained.',
       videoUrl: 'https://www.youtube.com/embed/Lq594XmpPBg',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/6/69/Horizon_Forbidden_West_cover_art.jpg',
+      thumbnail: 'https://i.ytimg.com/vi/Lq594XmpPBg/maxresdefault.jpg',
       date: new Date().toISOString().split('T')[0],
-      category: 'Gameplay',
+      category: 'Trailers',
       relatedGame: 'Horizon Forbidden West',
-      duration: '4:00:00'
+      duration: '4:00'
     },
     {
       id: `video-4-${Date.now()}`,
       type: 'video',
-      title: 'The Last of Us Part II - Grounded Difficulty',
-      excerpt: 'Can you survive the hardest difficulty? Watch this intense playthrough.',
+      title: 'The Last of Us Part II - Launch Trailer',
+      excerpt: 'Experience Ellie\'s emotional journey in this post-apocalyptic world.',
       videoUrl: 'https://www.youtube.com/embed/vhII1qlcZ4E',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/4/4f/TLOU_P2_Box_Art_2.png',
+      thumbnail: 'https://i.ytimg.com/vi/vhII1qlcZ4E/maxresdefault.jpg',
       date: new Date().toISOString().split('T')[0],
-      category: 'Gameplay',
+      category: 'Trailers',
       relatedGame: 'The Last of Us Part II',
-      duration: '5:00:00'
+      duration: '2:54'
     },
     {
       id: `video-5-${Date.now()}`,
       type: 'video',
-      title: 'Ghost of Tsushima - Legends Mode Guide',
-      excerpt: 'Master the multiplayer Legends mode with tips and strategies.',
+      title: 'Ghost of Tsushima - Official Trailer',
+      excerpt: 'Become Jin Sakai and defend Tsushima Island from the Mongol invasion.',
       videoUrl: 'https://www.youtube.com/embed/Ur0pQblaZcE',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg',
+      thumbnail: 'https://i.ytimg.com/vi/Ur0pQblaZcE/maxresdefault.jpg',
       date: new Date().toISOString().split('T')[0],
-      category: 'Gameplay',
+      category: 'Trailers',
       relatedGame: 'Ghost of Tsushima',
-      duration: '45:00'
+      duration: '2:45'
     },
     {
       id: `video-6-${Date.now()}`,
       type: 'video',
-      title: 'Elden Ring - All Endings Explained',
-      excerpt: 'Discover all the different endings and how to unlock them.',
-      videoUrl: 'https://www.youtube.com/embed/DYDs_Inzkz4',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg',
+      title: 'Elden Ring - Official Launch Trailer',
+      excerpt: 'Rise, Tarnished. Discover the Lands Between in this epic adventure.',
+      videoUrl: 'https://www.youtube.com/embed/qqiC88f9ogU',
+      thumbnail: 'https://i.ytimg.com/vi/qqiC88f9ogU/maxresdefault.jpg',
       date: new Date().toISOString().split('T')[0],
-      category: 'Gameplay',
+      category: 'Trailers',
       relatedGame: 'Elden Ring',
-      duration: '30:00'
+      duration: '3:17'
     },
     {
       id: `video-7-${Date.now()}`,
       type: 'video',
-      title: 'Final Fantasy XVI - Combat Guide',
-      excerpt: 'Master the action-packed combat system with these pro tips.',
-      videoUrl: 'https://www.youtube.com/embed/aPxQaPHlgfE',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Final_Fantasy_XVI_cover_art.png/220px-Final_Fantasy_XVI_cover_art.png',
+      title: 'Final Fantasy XVI - Awakening Trailer',
+      excerpt: 'Experience the next chapter of the legendary Final Fantasy series.',
+      videoUrl: 'https://www.youtube.com/embed/2tBnBAkHv9M',
+      thumbnail: 'https://i.ytimg.com/vi/2tBnBAkHv9M/maxresdefault.jpg',
       date: new Date().toISOString().split('T')[0],
-      category: 'Gameplay',
+      category: 'Trailers',
       relatedGame: 'Final Fantasy XVI',
-      duration: '25:00'
+      duration: '4:12'
     },
     {
       id: `video-8-${Date.now()}`,
       type: 'video',
-      title: 'Resident Evil 4 Remake - Full Walkthrough',
-      excerpt: 'Complete guide through the terrifying remake of a classic.',
-      videoUrl: 'https://www.youtube.com/embed/W3Z4cbjvfSk',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/d/df/Resident_Evil_4_remake_cover_art.jpg',
+      title: 'Resident Evil 4 Remake - Reveal Trailer',
+      excerpt: 'Leon S. Kennedy returns in this stunning remake of a classic.',
+      videoUrl: 'https://www.youtube.com/embed/bOaKvTMOsws',
+      thumbnail: 'https://i.ytimg.com/vi/bOaKvTMOsws/maxresdefault.jpg',
       date: new Date().toISOString().split('T')[0],
-      category: 'Gameplay',
+      category: 'Trailers',
       relatedGame: 'Resident Evil 4',
-      duration: '4:30:00'
+      duration: '2:03'
     },
     {
       id: `video-9-${Date.now()}`,
       type: 'video',
-      title: 'Baldurs Gate 3 - Best Builds Guide',
-      excerpt: 'Create the most powerful characters with these optimized builds.',
-      videoUrl: 'https://www.youtube.com/embed/1T22wNnVDU4',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/1/12/Baldur%27s_Gate_3_cover_art.jpg',
+      title: 'God of War (2018) - Official Story Trailer',
+      excerpt: 'Join Kratos and Atreus on their journey through the Norse realms.',
+      videoUrl: 'https://www.youtube.com/embed/K0u_kAWLJOA',
+      thumbnail: 'https://i.ytimg.com/vi/K0u_kAWLJOA/maxresdefault.jpg',
       date: new Date().toISOString().split('T')[0],
-      category: 'Gameplay',
-      relatedGame: 'Baldurs Gate 3',
-      duration: '1:00:00'
+      category: 'Trailers',
+      relatedGame: 'God of War',
+      duration: '2:57'
     },
     {
       id: `video-10-${Date.now()}`,
       type: 'video',
-      title: 'Alan Wake 2 - Story Explained',
-      excerpt: 'Unravel the mind-bending narrative of this psychological thriller.',
-      videoUrl: 'https://www.youtube.com/embed/dlQ3FeNu5Yk',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/en/2/2a/Alan_Wake_2_cover.jpg',
+      title: 'Red Dead Redemption 2 - Official Trailer',
+      excerpt: 'Experience the epic tale of outlaw Arthur Morgan in the wild west.',
+      videoUrl: 'https://www.youtube.com/embed/eaW0tYpxyp0',
+      thumbnail: 'https://i.ytimg.com/vi/eaW0tYpxyp0/maxresdefault.jpg',
       date: new Date().toISOString().split('T')[0],
-      category: 'Gameplay',
-      relatedGame: 'Alan Wake 2',
-      duration: '35:00'
+      category: 'Trailers',
+      relatedGame: 'Red Dead Redemption 2',
+      duration: '2:15'
     }
   ];
   

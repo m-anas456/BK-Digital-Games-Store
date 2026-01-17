@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
-import { FaShieldAlt, FaRocket, FaHeadset, FaStar, FaArrowRight, FaPlaystation } from 'react-icons/fa';
+import { FaShieldAlt, FaRocket, FaHeadset, FaStar, FaArrowRight, FaPlaystation, FaFire, FaNewspaper } from 'react-icons/fa';
+import games from '../data/games';
+import GameCard from '../components/GameCard';
 import './Home.css';
 
 const Home = () => {
+  // Get featured games (top rated)
+  const featuredGames = games.filter(game => game.rating >= 4.8).slice(0, 4);
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -60,6 +65,47 @@ const Home = () => {
           </div>
           <div className="floating-card card-3">
             <FaRocket />
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Games Section */}
+      <section className="games-section">
+        <div className="section-container">
+          <div className="section-header">
+            <h2 className="section-title">
+              <FaFire className="section-icon fire" />
+              Featured Games
+            </h2>
+            <Link to="/games" className="view-all-btn">
+              View All <FaArrowRight />
+            </Link>
+          </div>
+          <div className="home-games-grid">
+            {featuredGames.map((game, index) => (
+              <GameCard key={game.id} game={game} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Game Blog Section */}
+      <section className="blog-promo-section">
+        <div className="section-container">
+          <div className="blog-promo-content">
+            <FaNewspaper className="blog-promo-icon" />
+            <h2>Stay Updated with Gaming News</h2>
+            <p>Discover the latest gaming news, tips, gameplay videos, and behind-the-scenes content from the world of PlayStation gaming.</p>
+            <div className="blog-promo-buttons">
+              <Link to="/blog" className="btn btn-primary">
+                <FaNewspaper />
+                Visit Blog
+              </Link>
+              <Link to="/contact" className="btn btn-secondary">
+                Contact Us
+                <FaArrowRight />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

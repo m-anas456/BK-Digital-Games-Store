@@ -807,12 +807,12 @@
   }
 
   .posts-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 15px;
   }
 
   .post-image {
-    height: 140px;
+    height: 180px;
   }
 
   .post-content {
@@ -914,8 +914,8 @@
   }
 
   .posts-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .post-card {

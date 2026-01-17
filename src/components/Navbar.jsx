@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -16,6 +16,18 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -29,6 +41,12 @@ const Navbar = () => {
         <div className="menu-icon" onClick={toggleMenu}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </div>
+
+        {/* Menu Overlay */}
+        <div 
+          className={`menu-overlay ${isMenuOpen ? 'active' : ''}`} 
+          onClick={closeMenu}
+        ></div>
 
         {/* Navigation Links */}
         <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
