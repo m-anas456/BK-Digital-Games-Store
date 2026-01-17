@@ -57,4 +57,7 @@ function App() {
         </div>
       </Router>
     </CartProvider>
+  );
+}
 
+export default App;
