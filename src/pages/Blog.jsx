@@ -1,21 +1,45 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { FaNewspaper, FaLightbulb, FaVideo, FaImages, FaSearch, FaCalendar, FaGamepad, FaPlay, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import blogPosts, { getCategories } from '../data/blogData';
+import { FaNewspaper, FaLightbulb, FaVideo, FaImages, FaSearch, FaCalendar, FaGamepad, FaPlay, FaTimes, FaChevronLeft, FaChevronRight, FaSync, FaExternalLinkAlt } from 'react-icons/fa';
+import fetchAllBlogContent, { getCategories } from '../services/blogService';
 import './Blog.css';
 
 const Blog = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [activeFilter, setActiveFilter] = useState('All');
   const [activeType, setActiveType] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedPost, setSelectedPost] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [lastUpdated, setLastUpdated] = useState(null);
 
-  const categories = getCategories();
+  // Fetch blog content on mount
+  useEffect(() => {
+    loadBlogContent();
+  }, []);
+
+  const loadBlogContent = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const content = await fetchAllBlogContent();
+      setPosts(content);
+      setLastUpdated(new Date());
+    } catch (err) {
+      setError('Failed to load blog content. Please try again.');
+      console.error('Blog loading error:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const categories = useMemo(() => getCategories(posts), [posts]);
 
   // Filter posts based on type, category, and search
   const filteredPosts = useMemo(() => {
-    let filtered = blogPosts;
+    let filtered = posts;
 
     // Filter by type
     if (activeType !== 'all') {
@@ -37,14 +61,25 @@ const Blog = () => {
       );
     }
 
-    // Sort by date (newest first)
-    return filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
-  }, [activeFilter, activeType, searchQuery]);
+    return filtered;
+  }, [posts, activeFilter, activeType, searchQuery]);
 
   // Format date
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
+  };
+
+  // Format time ago
+  const getTimeAgo = (date) => {
+    if (!date) return '';
+    const seconds = Math.floor((new Date() - date) / 1000);
+    if (seconds < 60) return 'Just now';
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    return formatDate(date.toISOString());
   };
 
   // Get icon for post type
@@ -112,6 +147,14 @@ const Blog = () => {
           <p className="blog-subtitle">
             Latest news, fascinating facts, gameplay videos, and stunning screenshots
           </p>
+          {lastUpdated && (
+            <p className="last-updated">
+              Last updated: {getTimeAgo(lastUpdated)}
+              <button className="refresh-btn" onClick={loadBlogContent} disabled={loading}>
+                <FaSync className={loading ? 'spinning' : ''} />
+              </button>
+            </p>
+          )}
         </div>
       </section>
 
@@ -162,13 +205,35 @@ const Blog = () => {
       {/* Blog Posts Grid */}
       <section className="blog-content">
         <div className="blog-container">
-          {filteredPosts.length === 0 ? (
+          {/* Loading State */}
+          {loading && (
+            <div className="loading-state">
+              <div className="loading-spinner"></div>
+              <p>Fetching latest gaming content...</p>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && !loading && (
+            <div className="error-state">
+              <p>{error}</p>
+              <button className="retry-btn" onClick={loadBlogContent}>
+                <FaSync /> Try Again
+              </button>
+            </div>
+          )}
+
+          {/* No Posts */}
+          {!loading && !error && filteredPosts.length === 0 && (
             <div className="no-posts">
               <FaSearch className="no-posts-icon" />
               <h3>No posts found</h3>
               <p>Try adjusting your filters or search query</p>
             </div>
-          ) : (
+          )}
+
+          {/* Posts Grid */}
+          {!loading && !error && filteredPosts.length > 0 && (
             <div className="posts-grid">
               {filteredPosts.map((post, index) => (
                 <article 
@@ -179,9 +244,12 @@ const Blog = () => {
                 >
                   <div className="post-image">
                     <img 
-                      src={post.type === 'video' ? post.thumbnail : (post.type === 'screenshot' ? post.images[0] : post.image)} 
+                      src={post.type === 'video' ? post.thumbnail : (post.type === 'screenshot' ? post.images?.[0] : post.image)} 
                       alt={post.title}
                       loading="lazy"
+                      onError={(e) => {
+                        e.target.src = 'https://images.unsplash.com/photo-1493711662062-fa541f7f3d24?w=800';
+                      }}
                     />
                     <div className="post-type-badge">
                       {getTypeIcon(post.type)}
@@ -192,7 +260,7 @@ const Blog = () => {
                         <FaPlay />
                       </div>
                     )}
-                    {post.type === 'screenshot' && (
+                    {post.type === 'screenshot' && post.images && (
                       <div className="gallery-count">
                         <FaImages />
                         <span>{post.images.length} images</span>
@@ -214,6 +282,9 @@ const Blog = () => {
                     </div>
                     <h3 className="post-title">{post.title}</h3>
                     <p className="post-excerpt">{post.excerpt}</p>
+                    {post.source && (
+                      <span className="post-source">Source: {post.source}</span>
+                    )}
                     <button className="read-more-btn">
                       {post.type === 'video' ? 'Watch Now' : post.type === 'screenshot' ? 'View Gallery' : 'Read More'}
                     </button>
@@ -237,7 +308,13 @@ const Blog = () => {
             {(selectedPost.type === 'news' || selectedPost.type === 'fact') && (
               <div className="modal-article">
                 <div className="modal-image">
-                  <img src={selectedPost.image} alt={selectedPost.title} />
+                  <img 
+                    src={selectedPost.image} 
+                    alt={selectedPost.title}
+                    onError={(e) => {
+                      e.target.src = 'https://images.unsplash.com/photo-1493711662062-fa541f7f3d24?w=800';
+                    }}
+                  />
                 </div>
                 <div className="modal-body">
                   <div className="modal-meta">
@@ -249,6 +326,11 @@ const Blog = () => {
                       <FaCalendar />
                       {formatDate(selectedPost.date)}
                     </span>
+                    {selectedPost.source && (
+                      <span className="modal-source">
+                        Source: {selectedPost.source}
+                      </span>
+                    )}
                   </div>
                   <h2 className="modal-title">{selectedPost.title}</h2>
                   {selectedPost.relatedGame && (
@@ -257,10 +339,15 @@ const Blog = () => {
                     </Link>
                   )}
                   <div className="modal-text">
-                    {selectedPost.content.split('. ').map((sentence, index) => (
+                    {selectedPost.content?.split('. ').map((sentence, index) => (
                       <p key={index}>{sentence.trim()}{sentence.endsWith('.') ? '' : '.'}</p>
                     ))}
                   </div>
+                  {selectedPost.url && (
+                    <a href={selectedPost.url} target="_blank" rel="noopener noreferrer" className="read-original-btn">
+                      <FaExternalLinkAlt /> Read Original Article
+                    </a>
+                  )}
                 </div>
               </div>
             )}
@@ -306,7 +393,7 @@ const Blog = () => {
             )}
 
             {/* Screenshot Gallery */}
-            {selectedPost.type === 'screenshot' && (
+            {selectedPost.type === 'screenshot' && selectedPost.images && (
               <div className="modal-gallery">
                 <div className="gallery-main">
                   <button className="gallery-nav prev" onClick={prevImage}>
@@ -315,6 +402,9 @@ const Blog = () => {
                   <img 
                     src={selectedPost.images[currentImageIndex]} 
                     alt={`${selectedPost.title} - Image ${currentImageIndex + 1}`}
+                    onError={(e) => {
+                      e.target.src = 'https://images.unsplash.com/photo-1493711662062-fa541f7f3d24?w=800';
+                    }}
                   />
                   <button className="gallery-nav next" onClick={nextImage}>
                     <FaChevronRight />
@@ -330,7 +420,13 @@ const Blog = () => {
                       className={`thumbnail ${index === currentImageIndex ? 'active' : ''}`}
                       onClick={() => setCurrentImageIndex(index)}
                     >
-                      <img src={img} alt={`Thumbnail ${index + 1}`} />
+                      <img 
+                        src={img} 
+                        alt={`Thumbnail ${index + 1}`}
+                        onError={(e) => {
+                          e.target.src = 'https://images.unsplash.com/photo-1493711662062-fa541f7f3d24?w=800';
+                        }}
+                      />
                     </button>
                   ))}
                 </div>
