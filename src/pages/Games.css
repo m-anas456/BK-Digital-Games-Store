@@ -306,26 +306,26 @@
   }
 
   .filters-container {
-    flex-direction: row;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
     gap: 8px;
     align-items: center;
   }
 
   .search-box {
-    flex: 1;
     min-width: 0;
   }
 
   .search-box input {
-    padding: 12px 12px 12px 42px;
-    font-size: 0.9rem;
-    border-radius: 25px;
+    padding: 10px 10px 10px 36px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    width: 100%;
   }
 
   .search-icon {
-    font-size: 1.1rem;
-    left: 14px;
+    font-size: 1rem;
+    left: 12px;
   }
 
   .filter-group {
@@ -333,10 +333,12 @@
   }
 
   .filter-group select {
-    padding: 12px 32px 12px 12px;
-    font-size: 0.85rem;
+    padding: 10px 24px 10px 8px;
+    font-size: 0.75rem;
     min-width: auto;
-    border-radius: 25px;
+    border-radius: 20px;
+    background-position: right 6px center;
+    background-size: 10px;
   }
 
   .filter-icon {
@@ -398,27 +400,29 @@
   }
 
   .games-filters {
-    padding: 8px 10px;
-    gap: 6px;
+    padding: 8px 8px;
   }
 
   .filters-container {
-    gap: 6px;
+    grid-template-columns: 1fr auto auto;
+    gap: 5px;
   }
 
   .search-box input {
-    padding: 10px 10px 10px 38px;
-    font-size: 0.85rem;
+    padding: 8px 8px 8px 30px;
+    font-size: 0.8rem;
   }
 
   .search-icon {
-    font-size: 1rem;
-    left: 12px;
+    font-size: 0.9rem;
+    left: 10px;
   }
 
   .filter-group select {
-    padding: 10px 28px 10px 10px;
-    font-size: 0.8rem;
+    padding: 8px 20px 8px 6px;
+    font-size: 0.7rem;
+    background-position: right 4px center;
+    background-size: 8px;
   }
 
   .results-info {
